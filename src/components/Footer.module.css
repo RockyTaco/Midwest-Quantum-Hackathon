@@ -1,0 +1,152 @@
+.footer {
+  background: #ffffff;
+  border-top: 1px solid var(--border-light);
+  padding: 5rem 2rem 2.5rem;
+  position: relative;
+  margin-top: auto;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1.2fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0f172a;
+  gap: 0.15rem;
+  width: fit-content;
+}
+
+.logoBracket {
+  color: var(--pastel-teal-text);
+}
+
+.logoText {
+  color: #0f172a;
+}
+
+.brandText {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--foreground-muted);
+}
+
+.linkColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.columnTitle {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.link {
+  font-size: 0.85rem;
+  color: var(--foreground-muted);
+}
+
+.link:hover {
+  color: var(--pastel-teal-text);
+}
+
+.partnerText {
+  font-size: 0.85rem;
+  color: var(--foreground-muted);
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-light);
+  padding-top: 2rem;
+}
+
+.copy {
+  font-size: 0.8rem;
+  color: var(--foreground-muted);
+  line-height: 1.5;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--foreground-muted);
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--pastel-teal-text);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--pastel-teal-border);
+  animation: footerPulse 2s infinite;
+}
+
+@keyframes footerPulse {
+  0% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(15, 118, 110, 0.4);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(15, 118, 110, 0);
+  }
+  100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(15, 118, 110, 0);
+  }
+}
+
+@media (max-width: 900px) {
+  .top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+  .top > *:first-child {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .top {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .top > *:first-child {
+    grid-column: span 1;
+  }
+  .bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+}

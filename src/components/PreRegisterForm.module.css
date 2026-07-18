@@ -1,0 +1,258 @@
+.formWrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.formCard {
+  padding: 3rem;
+  background: #ffffff;
+}
+
+/* Progress bar */
+.progressContainer {
+  margin-bottom: 2.5rem;
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--foreground-muted);
+  margin-bottom: 0.5rem;
+}
+
+.stepTitle {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.progressPercent {
+  color: var(--entanglement-purple);
+  font-weight: 700;
+}
+
+.progressBarBg {
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  background: var(--entanglement-purple);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.stepContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.stepHeader {
+  font-size: 1.6rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.stepDesc {
+  font-size: 0.95rem;
+  color: var(--foreground-muted);
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #1e293b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.input,
+.select,
+.textarea {
+  background: #ffffff;
+  border: 1px solid var(--border-slate);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem;
+  color: var(--foreground);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: var(--entanglement-purple);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+  background: #ffffff;
+}
+
+.inputError {
+  border-color: #ef4444 !important;
+}
+
+.errorText {
+  font-size: 0.8rem;
+  color: #ef4444;
+  margin-top: 0.25rem;
+}
+
+/* Radio buttons list */
+.radioGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-slate);
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.radioLabel:hover {
+  background: #faf5ff;
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.radioSelected {
+  border-color: var(--entanglement-purple) !important;
+  background: rgba(139, 92, 246, 0.04) !important;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.08);
+}
+
+.hiddenRadio {
+  opacity: 0;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.radioTitle {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #0f172a;
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.radioDesc {
+  font-size: 0.8rem;
+  color: var(--foreground-muted);
+}
+
+.radioSelected .radioTitle {
+  color: var(--entanglement-purple);
+}
+
+.radioSelected .radioDesc {
+  color: var(--foreground-muted);
+  opacity: 0.9;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.actionsDouble {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+/* Success content styles */
+.successContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.successIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #f0fdf4;
+  border: 2px solid #bbf7d0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.successDesc {
+  font-size: 1.15rem;
+  color: var(--foreground-muted);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  max-width: 450px;
+}
+
+.successDesc strong {
+  color: #0f172a;
+}
+
+.successSubtext {
+  font-size: 0.9rem;
+  color: var(--foreground-muted);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 480px;
+}
+
+.successSubtext strong {
+  color: #0f172a;
+}
+
+.successActions {
+  display: flex;
+  gap: 1rem;
+}
+
+.fadeIn {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 640px) {
+  .formCard {
+    padding: 1.5rem;
+  }
+}

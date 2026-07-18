@@ -1,0 +1,195 @@
+.main {
+  flex-grow: 1;
+  padding-top: 100px;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+/* Intro banner */
+.intro {
+  padding: 4rem 0 2rem;
+  text-align: center;
+}
+
+.pageTitle {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-top: 0.75rem;
+  margin-bottom: 1.25rem;
+  color: var(--foreground);
+}
+
+.pageSubtitle {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--foreground-muted);
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+/* Highlights Column Grid */
+.highlights {
+  padding: 3rem 0;
+}
+
+.highlightGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--border-slate);
+  background-color: #ffffff;
+}
+
+.highlightCol {
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #ffffff;
+}
+
+.highlightGrid > .highlightCol:not(:last-child) {
+  border-right: 1px solid var(--border-slate);
+}
+
+.colNum {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--pastel-lavender-text);
+  margin-bottom: 1rem;
+}
+
+.highlightTitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  color: var(--foreground);
+}
+
+.highlightText {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--foreground-muted);
+}
+
+/* Coalition Directory */
+.coalition {
+  padding: 5rem 0 8rem;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.sectionLead {
+  font-size: 1rem;
+  color: var(--foreground-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.uniGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.uniCard {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.uniHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-slate);
+  padding-bottom: 1rem;
+}
+
+.iconWrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.uniIconImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.uniName {
+  font-size: 1.1rem;
+  color: var(--foreground);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.uniLab {
+  font-size: 0.7rem;
+  color: var(--foreground-muted);
+  display: block;
+  margin-top: 0.15rem;
+}
+
+.uniFocus {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--pastel-teal-text);
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.uniFocus strong {
+  color: var(--foreground-muted);
+  font-weight: 500;
+}
+
+.uniDesc {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--foreground-muted);
+  margin-top: auto;
+}
+
+@media (max-width: 1024px) {
+  .uniGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .highlightGrid,
+  .uniGrid {
+    grid-template-columns: 1fr;
+  }
+  .highlightGrid > .highlightCol:not(:last-child) {
+    border-right: none;
+    border-bottom: 1px solid var(--border-slate);
+  }
+}
