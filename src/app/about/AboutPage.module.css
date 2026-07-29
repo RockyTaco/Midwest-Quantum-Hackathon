@@ -7,92 +7,88 @@
   max-width: var(--max-width);
   margin: 0 auto;
   width: 100%;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
 }
 
-/* Intro banner */
+/* ── Intro ── */
 .intro {
-  padding: 4rem 0 2rem;
+  padding: 4rem 0 3rem;
   text-align: center;
 }
 
 .pageTitle {
-  font-size: 2.5rem;
-  font-weight: 500;
+  font-size: 2.75rem;
+  font-weight: 700;
   margin-top: 0.75rem;
   margin-bottom: 1.25rem;
   color: var(--foreground);
+  letter-spacing: -0.035em;
 }
 
 .pageSubtitle {
   font-size: 1.05rem;
   line-height: 1.7;
   color: var(--foreground-muted);
-  max-width: 750px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
-/* Highlights Column Grid */
-.highlights {
-  padding: 3rem 0;
+/* ── Mission / Vision ── */
+.missionSection {
+  padding: 2rem 0 4rem;
 }
 
-.highlightGrid {
+.missionGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0;
-  border: 1px solid var(--border-slate);
-  background-color: #ffffff;
+  gap: 1.5rem;
 }
 
-.highlightCol {
-  padding: 3rem 2.5rem;
+.missionCard {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  background-color: #ffffff;
+  gap: 0.85rem;
+  transition: border-color 0.2s ease;
 }
 
-.highlightGrid > .highlightCol:not(:last-child) {
-  border-right: 1px solid var(--border-slate);
+.missionCard:hover {
+  border-color: var(--border-medium);
 }
 
-.colNum {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--pastel-lavender-text);
-  margin-bottom: 1rem;
-}
-
-.highlightTitle {
-  font-size: 1.25rem;
-  font-weight: 500;
-  margin-bottom: 0.75rem;
+.missionTitle {
+  font-size: 1.5rem;
+  font-weight: 650;
   color: var(--foreground);
+  letter-spacing: -0.025em;
 }
 
-.highlightText {
-  font-size: 0.9rem;
-  line-height: 1.6;
+.missionBody {
+  font-size: 0.92rem;
+  line-height: 1.7;
   color: var(--foreground-muted);
 }
 
-/* Coalition Directory */
-.coalition {
-  padding: 5rem 0 8rem;
+/* ── What to Expect ── */
+.expectSection {
+  padding: 4rem 0;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .sectionHeader {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .sectionTitle {
-  font-size: 2rem;
+  font-size: 2.25rem;
   margin-top: 0.75rem;
   margin-bottom: 1rem;
-  font-weight: 500;
+  font-weight: 650;
+  letter-spacing: -0.03em;
 }
 
 .sectionLead {
@@ -100,83 +96,186 @@
   color: var(--foreground-muted);
   max-width: 600px;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.65;
+}
+
+.expectGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.expectCard {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  transition: border-color 0.2s ease;
+}
+
+.expectCard:hover {
+  border-color: var(--border-medium);
+}
+
+.expectNum {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  letter-spacing: 0.1em;
+}
+
+.expectCardTitle {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--foreground);
+  letter-spacing: -0.02em;
+}
+
+.expectCardBody {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--foreground-muted);
+}
+
+/* ── Coalition (Student Orgs) ── */
+.coalition {
+  padding: 4rem 0;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .uniGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 1.25rem;
 }
 
 .uniCard {
-  padding: 2rem;
+  padding: 1.75rem;
   display: flex;
   flex-direction: column;
   height: 100%;
-  border-radius: 4px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.2s ease;
+}
+
+.uniCard:hover {
+  border-color: var(--border-medium);
 }
 
 .uniHeader {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 1.25rem;
-  border-bottom: 1px solid var(--border-slate);
+  margin-bottom: 1.15rem;
+  border-bottom: 1px solid var(--border-subtle);
   padding-bottom: 1rem;
 }
 
 .iconWrapper {
-  width: 40px;
-  height: 40px;
-  border-radius: 4px;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-raised);
+  border: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .uniIconImage {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  border-radius: 4px;
+  padding: 2px;
 }
 
 .uniName {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--foreground);
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .uniLab {
-  font-size: 0.7rem;
-  color: var(--foreground-muted);
-  display: block;
-  margin-top: 0.15rem;
-}
-
-.uniFocus {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--pastel-teal-text);
-  margin-bottom: 0.75rem;
-  font-weight: 700;
-}
-
-.uniFocus strong {
-  color: var(--foreground-muted);
-  font-weight: 500;
+  font-size: 0.68rem;
+  color: var(--accent-gold);
+  display: block;
+  margin-top: 0.2rem;
 }
 
 .uniDesc {
   font-size: 0.85rem;
   line-height: 1.6;
   color: var(--foreground-muted);
-  margin-top: auto;
+  flex-grow: 1;
 }
 
+.websiteLinkWrapper {
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.websiteLink {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  transition: color 0.15s ease;
+}
+
+.websiteLink:hover {
+  color: #ffffff;
+}
+
+/* ── FAQ ── */
+.faqSection {
+  padding: 4rem 0 6rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.faqItem {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  transition: border-color 0.2s ease;
+}
+
+.faqItem:hover {
+  border-color: var(--border-medium);
+}
+
+.faqQuestion {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.65rem;
+  letter-spacing: -0.015em;
+}
+
+.faqAnswer {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--foreground-muted);
+}
+
+/* ── Responsive ── */
 @media (max-width: 1024px) {
   .uniGrid {
     grid-template-columns: repeat(2, 1fr);
@@ -184,12 +283,14 @@
 }
 
 @media (max-width: 768px) {
-  .highlightGrid,
+  .missionGrid,
+  .expectGrid,
+  .faqGrid,
   .uniGrid {
     grid-template-columns: 1fr;
   }
-  .highlightGrid > .highlightCol:not(:last-child) {
-    border-right: none;
-    border-bottom: 1px solid var(--border-slate);
+
+  .pageTitle {
+    font-size: 2.25rem;
   }
 }

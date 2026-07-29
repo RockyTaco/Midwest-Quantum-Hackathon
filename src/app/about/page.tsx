@@ -2,114 +2,67 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import styles from "./AboutPage.module.css";
 
-interface University {
+interface UniversityOrg {
   name: string;
   acronym: string;
-  lab: string;
-  focus: string;
+  orgName: string;
+  badgeClass: string;
+  iconPath?: string;
+  websiteUrl?: string;
   description: string;
-  icon: React.ReactNode;
 }
 
 export default function AboutPage() {
-  const universities: University[] = [
+  const studentOrgs: UniversityOrg[] = [
     {
       name: "Purdue University",
-      acronym: "PU",
-      lab: "Quantum Student Org (QSO)",
-      focus: "Student Onboarding & Algorithm Crash Courses",
-      icon: (
-        <img src="/images/qso_logo.png" alt="Purdue QSO Logo" className={styles.uniIconImage} />
-      ),
-      description: "Purdue's premier student-led organization dedicated to quantum information science and engineering, fostering an inclusive community to learn and program quantum technologies.",
+      acronym: "Purdue (QSO)",
+      orgName: "Quantum Student Organization (QSO)",
+      badgeClass: "badge-gold",
+      iconPath: "/images/qso_logo.png",
+      websiteUrl: "https://qsopurdue.org",
+      description:
+        "Established 2023. Purdue's student-run quantum organization dedicated to learning, algorithm crash courses, and hands-on hardware control projects.",
     },
     {
       name: "University of Illinois Urbana-Champaign",
       acronym: "UIUC",
-      lab: "IQUIST Research Institute",
-      focus: "Primary Venue Host & Seed Funding",
-      icon: (
-        <img src="/images/uiuc_logo.svg" alt="UIUC Block I Logo" className={styles.uniIconImage} />
-      ),
-      description: "The Illinois Quantum Information Science and Technology Center, a multidisciplinary research hub at UIUC accelerating quantum science, education, and regional research partnerships.",
+      orgName: "Illinois Student Quantum Club",
+      badgeClass: "badge-emerald",
+      description:
+        "Student-led quantum computing interest group at UIUC organizing regional workshop tracks and student hackathon teams.",
     },
     {
       name: "University of Chicago",
-      acronym: "UC",
-      lab: "Chicago Quantum Exchange (CQE)",
-      focus: "Industry Connection & Alumni Networking",
-      icon: (
-        <img src="/images/cqe_logo.png" alt="CQE Logo" className={styles.uniIconImage} />
-      ),
-      description: "An intellectual hub based at the University of Chicago that connects academic, industrial, and government partners to advance quantum science and engineering across the Midwest.",
+      acronym: "UChicago",
+      orgName: "Chicago Student Quantum Group",
+      badgeClass: "badge-crimson",
+      description:
+        "Student quantum community connecting undergraduate and graduate researchers across Chicago.",
     },
     {
       name: "University of Illinois Chicago",
       acronym: "UIC",
-      lab: "Chicago Quantum Chapter",
-      focus: "Urban Outreach & Hybrid Architectures",
-      icon: (
-        <svg width="40" height="40" viewBox="0 0 40 40" className={styles.uniIcon}>
-          <rect x="2" y="2" width="36" height="36" rx="4" fill="var(--pastel-cool-bg)" stroke="var(--border-slate)" strokeWidth="1.5" />
-          <line x1="6" y1="14" x2="34" y2="14" stroke="var(--border-slate)" strokeWidth="1.5" />
-          <line x1="6" y1="26" x2="34" y2="26" stroke="var(--border-slate)" strokeWidth="1.5" />
-          <line x1="20" y1="14" x2="20" y2="26" stroke="var(--border-slate)" strokeWidth="1.5" />
-          <circle cx="20" cy="14" r="3" fill="var(--pastel-cool-text)" stroke="var(--border-slate)" strokeWidth="1" />
-          <circle cx="20" cy="26" r="5" fill="#ffffff" stroke="var(--border-slate)" strokeWidth="1.5" />
-          <line x1="17" y1="26" x2="23" y2="26" stroke="var(--border-slate)" strokeWidth="1.5" />
-          <line x1="20" y1="23" x2="20" y2="29" stroke="var(--border-slate)" strokeWidth="1.5" />
-        </svg>
-      ),
-      description: "A student-led quantum computing and research group at UIC expanding quantum access, education, and career development across diverse urban student populations.",
+      orgName: "UIC Quantum Chapter",
+      badgeClass: "badge-cyan",
+      description:
+        "Student chapter expanding quantum education, peer mentoring, and developer workshops across UIC.",
     },
     {
-      name: "Northwestern University",
-      acronym: "NU",
-      lab: "Center for Molecular Quantum Transducers",
-      focus: "Molecular Devices & Materials Track",
-      icon: (
-        <svg width="40" height="40" viewBox="0 0 40 40" className={styles.uniIcon}>
-          <rect x="2" y="2" width="36" height="36" rx="4" fill="var(--pastel-lavender-bg)" stroke="var(--border-slate)" strokeWidth="1.5" />
-          <polygon points="20,8 30,14 30,26 20,32 10,26 10,14" fill="none" stroke="var(--border-slate)" strokeWidth="1.5" />
-          <polygon points="20,12 27,16 27,24 20,28 13,24 13,16" fill="none" stroke="var(--pastel-lavender-text)" strokeWidth="1" strokeDasharray="2 2" />
-        </svg>
-      ),
-      description: "A collaborative research center at Northwestern focused on chemistry, materials science, and quantum science to develop molecular quantum devices.",
+      name: "Purdue University Northwest",
+      acronym: "Purdue NW",
+      orgName: "Purdue NW Quantum Chapter",
+      badgeClass: "badge-gold",
+      description:
+        "Student quantum chapter connecting builders across Northwest Indiana along the Chicagoland corridor.",
     },
     {
       name: "University of Wisconsin–Madison",
-      acronym: "UW",
-      lab: "Wisconsin Quantum Institute (WQI)",
-      focus: "Qubit Simulation & Logic Tracks",
-      icon: (
-        <svg width="40" height="40" viewBox="0 0 40 40" className={styles.uniIcon}>
-          <rect x="2" y="2" width="36" height="36" rx="4" fill="var(--pastel-sage-bg)" stroke="var(--border-slate)" strokeWidth="1.5" />
-          <rect x="12" y="12" width="16" height="16" fill="none" stroke="var(--border-slate)" strokeWidth="1.5" />
-          <line x1="12" y1="20" x2="28" y2="20" stroke="var(--pastel-sage-text)" strokeWidth="1" />
-          <line x1="20" y1="12" x2="20" y2="28" stroke="var(--pastel-sage-text)" strokeWidth="1" />
-          <line x1="20" y1="4" x2="20" y2="12" stroke="var(--border-slate)" strokeWidth="1.5" />
-          <line x1="20" y1="28" x2="20" y2="36" stroke="var(--border-slate)" strokeWidth="1.5" />
-          <line x1="4" y1="20" x2="12" y2="20" stroke="var(--border-slate)" strokeWidth="1.5" />
-          <line x1="28" y1="20" x2="36" y2="20" stroke="var(--border-slate)" strokeWidth="1.5" />
-        </svg>
-      ),
-      description: "An institute promoting research and education in quantum computing, sensing, and communication, utilizing UW-Madison's deep history in physical sciences.",
-    },
-    {
-      name: "University of Michigan",
-      acronym: "UM",
-      lab: "Michigan Quantum Science & Tech",
-      focus: "Quantum Cryptography & Security",
-      icon: (
-        <svg width="40" height="40" viewBox="0 0 40 40" className={styles.uniIcon}>
-          <rect x="2" y="2" width="36" height="36" rx="4" fill="var(--pastel-peach-bg)" stroke="var(--border-slate)" strokeWidth="1.5" />
-          <path d="M 14,18 L 14,13 A 6,6 0 0,1 26,13 L 26,18" fill="none" stroke="var(--border-slate)" strokeWidth="1.5" />
-          <rect x="10" y="18" width="20" height="14" rx="2" fill="none" stroke="var(--border-slate)" strokeWidth="1.5" />
-          <circle cx="20" cy="23" r="2.5" fill="var(--pastel-peach-text)" stroke="var(--border-slate)" strokeWidth="1" />
-          <line x1="20" y1="25.5" x2="20" y2="29" stroke="var(--border-slate)" strokeWidth="1.5" />
-        </svg>
-      ),
-      description: "A university-wide community coordinating research, education, and partnership opportunities across departments and laboratories at the University of Michigan.",
+      acronym: "UW-Madison",
+      orgName: "Wisconsin Quantum Student Club",
+      badgeClass: "badge-cyan",
+      description:
+        "Student-led club focusing on quantum simulation algorithms, logic, and benchmarking projects.",
     },
   ];
 
@@ -117,72 +70,211 @@ export default function AboutPage() {
     <>
       <Header />
       <main className={styles.main}>
-        {/* Intro Banner */}
+        {/* Intro */}
         <section className={styles.intro}>
           <div className={styles.container}>
-            <span className="badge badge-sage">Our Vision</span>
-            <h1 className={styles.pageTitle}>More than a Hackathon: An Ecosystem</h1>
+            <span className="badge badge-gold">Student-Led Initiative</span>
+            <h1 className={styles.pageTitle}>About |MQH⟩</h1>
             <p className={styles.pageSubtitle}>
-              The Midwest Quantum Hackathon (MQH) is designed to solve a core challenge in student tech hackathons: 
-              participants building projects over a single weekend and walking away without continuous engagement. 
-              We are constructing a sustainable pipeline connecting students with regional research networks, 
-              local mentors, and computing credits.
+              The Midwest Quantum Hackathon is organized entirely by student organizations across six
+              regional universities. Our goal is to build a long-term Midwest quantum builder
+              community — by students, for students.
             </p>
           </div>
         </section>
 
-        {/* Highlight Grid (Typographic split lines) */}
-        <section className={styles.highlights}>
+        {/* Mission & Vision */}
+        <section className={styles.missionSection}>
           <div className={styles.container}>
-            <div className={styles.highlightGrid}>
-              <div className={styles.highlightCol}>
-                <span className={styles.colNum}>[ 01 ]</span>
-                <h3 className={styles.highlightTitle}>1:1 Faculty Mentorship</h3>
-                <p className={styles.highlightText}>
-                  Teams work directly with graduate researchers, postdocs, and professors from UIUC IQUIST and the Chicago Quantum Exchange, 
-                  as well as student mentors from the Purdue Quantum Student Org (QSO). Gain guidance to turn a hack project into a publishable paper.
+            <div className={styles.missionGrid}>
+              <div className={styles.missionCard}>
+                <span className="badge badge-emerald">Our Mission</span>
+                <h2 className={styles.missionTitle}>Why MQH Exists</h2>
+                <p className={styles.missionBody}>
+                  Quantum computing is growing rapidly, but most student exposure stops at theory.
+                  MQH bridges that gap by giving undergrads and graduate students across the Midwest
+                  a space to build, collaborate, and learn from each other — not just listen to
+                  lectures.
+                </p>
+                <p className={styles.missionBody}>
+                  We believe the strongest quantum workforce will emerge from students who have
+                  actually written circuits, debugged hardware interfaces, and solved open-ended
+                  problems together. MQH is where that starts.
                 </p>
               </div>
 
-              <div className={styles.highlightCol}>
-                <span className={styles.colNum}>[ 02 ]</span>
-                <h3 className={styles.highlightTitle}>Continuous Incubation</h3>
-                <p className={styles.highlightText}>
-                  MQH helps transition student projects into active research pipelines. Winning teams receive local 
-                  workspace grants, follow-on cloud credits, and direct guidance from university quantum directors.
+              <div className={styles.missionCard}>
+                <span className="badge badge-cyan">Our Vision</span>
+                <h2 className={styles.missionTitle}>What We&apos;re Building</h2>
+                <p className={styles.missionBody}>
+                  A recurring, student-organized event that becomes the default meeting point for
+                  Midwest quantum students. Not a conference. Not a career fair. A hackathon — where
+                  the emphasis is on building things that work.
+                </p>
+                <p className={styles.missionBody}>
+                  Over time, we want to establish a network of student quantum orgs that share
+                  resources, co-develop workshops, and make it easy for any Midwest student to get
+                  involved in quantum regardless of their university&apos;s existing infrastructure.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Organizers and Partner Universities */}
+        {/* What to Expect */}
+        <section className={styles.expectSection}>
+          <div className={styles.container}>
+            <div className={styles.sectionHeader}>
+              <span className="badge badge-gold">The Event</span>
+              <h2 className={styles.sectionTitle}>What to Expect</h2>
+              <p className={styles.sectionLead}>
+                A weekend-long hackathon bringing together student builders from across the Midwest.
+              </p>
+            </div>
+
+            <div className={styles.expectGrid}>
+              <div className={styles.expectCard}>
+                <span className={styles.expectNum}>01</span>
+                <h3 className={styles.expectCardTitle}>Challenge Tracks</h3>
+                <p className={styles.expectCardBody}>
+                  Multiple challenge tracks designed by student orgs and sponsors — covering quantum
+                  algorithms, error correction, quantum machine learning, and hardware pulse
+                  programming.
+                </p>
+              </div>
+              <div className={styles.expectCard}>
+                <span className={styles.expectNum}>02</span>
+                <h3 className={styles.expectCardTitle}>Workshops & Crash Courses</h3>
+                <p className={styles.expectCardBody}>
+                  Hands-on sessions for all experience levels. Learn to write your first quantum
+                  circuit, or dive into advanced topics like variational algorithms and noise
+                  mitigation.
+                </p>
+              </div>
+              <div className={styles.expectCard}>
+                <span className={styles.expectNum}>03</span>
+                <h3 className={styles.expectCardTitle}>Cross-Campus Teams</h3>
+                <p className={styles.expectCardBody}>
+                  Form teams across university boundaries. Meet students from other schools, combine
+                  complementary skills, and build something together over the weekend.
+                </p>
+              </div>
+              <div className={styles.expectCard}>
+                <span className={styles.expectNum}>04</span>
+                <h3 className={styles.expectCardTitle}>Demos & Judging</h3>
+                <p className={styles.expectCardBody}>
+                  Present your project to judges from academia and industry. Prizes awarded across
+                  categories including technical depth, creativity, and real-world applicability.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Participating Student Orgs */}
         <section className={styles.coalition}>
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <span className="badge badge-lavender">Organizers & Partners</span>
-              <h2 className={styles.sectionTitle}>Organizers & Partnering Universities</h2>
+              <span className="badge badge-emerald">Student Chapters</span>
+              <h2 className={styles.sectionTitle}>Participating Student Organizations</h2>
               <p className={styles.sectionLead}>
-                The Midwest Quantum Hackathon is a joint-organized event co-founded by student groups and research centers 
-                from leading regional universities.
+                The student-run chapters co-founding MQH. Each org brings its own community,
+                expertise, and energy to the event.
               </p>
             </div>
 
             <div className={styles.uniGrid}>
-              {universities.map((uni, idx) => (
-                <div key={idx} className={`${styles.uniCard} card-panel`}>
+              {studentOrgs.map((org, idx) => (
+                <div key={idx} className={styles.uniCard}>
                   <div className={styles.uniHeader}>
                     <div className={styles.iconWrapper}>
-                      {uni.icon}
+                      {org.iconPath ? (
+                        <img
+                          src={org.iconPath}
+                          alt={`${org.name} Logo`}
+                          className={styles.uniIconImage}
+                        />
+                      ) : (
+                        <span className={`badge ${org.badgeClass}`}>{org.acronym}</span>
+                      )}
                     </div>
                     <div>
-                      <h3 className={styles.uniName}>{uni.name}</h3>
-                      <span className={styles.uniLab}>{uni.lab}</span>
+                      <h3 className={styles.uniName}>{org.name}</h3>
+                      <span className={styles.uniLab}>{org.orgName}</span>
                     </div>
                   </div>
-                  <p className={styles.uniDesc}>{uni.description}</p>
+
+                  <p className={styles.uniDesc}>{org.description}</p>
+
+                  {org.websiteUrl && (
+                    <div className={styles.websiteLinkWrapper}>
+                      <a
+                        href={org.websiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.websiteLink}
+                      >
+                        Visit {org.websiteUrl.replace("https://", "")} ↗
+                      </a>
+                    </div>
+                  )}
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ / Quick Facts */}
+        <section className={styles.faqSection}>
+          <div className={styles.container}>
+            <div className={styles.sectionHeader}>
+              <span className="badge badge-cyan">Details</span>
+              <h2 className={styles.sectionTitle}>Quick Facts</h2>
+            </div>
+
+            <div className={styles.faqGrid}>
+              <div className={styles.faqItem}>
+                <h4 className={styles.faqQuestion}>When is MQH?</h4>
+                <p className={styles.faqAnswer}>
+                  Autumn 2026. Exact dates to be announced once venue logistics are confirmed.
+                  Pre-register to receive updates.
+                </p>
+              </div>
+              <div className={styles.faqItem}>
+                <h4 className={styles.faqQuestion}>Where will it be held?</h4>
+                <p className={styles.faqAnswer}>
+                  Chicago, Illinois. The central location makes it accessible to all participating
+                  Midwest universities within driving distance.
+                </p>
+              </div>
+              <div className={styles.faqItem}>
+                <h4 className={styles.faqQuestion}>Who can participate?</h4>
+                <p className={styles.faqAnswer}>
+                  Any undergraduate or graduate student at a Midwest university. No prior quantum
+                  computing experience is required — workshops will cover fundamentals.
+                </p>
+              </div>
+              <div className={styles.faqItem}>
+                <h4 className={styles.faqQuestion}>Is there a cost?</h4>
+                <p className={styles.faqAnswer}>
+                  We aim to make MQH free for all students. Sponsorship funds are used to subsidize
+                  travel, meals, and event operations. Student travel stipends may be available.
+                </p>
+              </div>
+              <div className={styles.faqItem}>
+                <h4 className={styles.faqQuestion}>How are teams formed?</h4>
+                <p className={styles.faqAnswer}>
+                  You can register with a team or be matched with other students at the event. We
+                  encourage cross-campus teams — it&apos;s part of what makes MQH different.
+                </p>
+              </div>
+              <div className={styles.faqItem}>
+                <h4 className={styles.faqQuestion}>Want your university involved?</h4>
+                <p className={styles.faqAnswer}>
+                  If your school has a quantum computing student org and you want to co-organize or
+                  participate, reach out — we&apos;re actively expanding the coalition.
+                </p>
+              </div>
             </div>
           </div>
         </section>

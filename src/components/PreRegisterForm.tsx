@@ -69,7 +69,6 @@ export default function PreRegisterForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateStep(2)) {
-      // Mock API Save (Local Storage)
       const registrations = JSON.parse(localStorage.getItem("mqh_registrations") || "[]");
       registrations.push({
         ...formData,
@@ -96,7 +95,7 @@ export default function PreRegisterForm() {
 
   return (
     <div className={styles.formWrapper}>
-      <div className={`${styles.formCard} card-panel`}>
+      <div className={styles.formCard}>
         {step < 3 && (
           <div className={styles.progressContainer}>
             <div className={styles.progressHeader}>
@@ -116,7 +115,7 @@ export default function PreRegisterForm() {
             <div className={styles.stepContent}>
               <h3 className={styles.stepHeader}>Pre-Register Interest</h3>
               <p className={styles.stepDesc}>
-                Demonstrate early interest to secure regional van travel grants and priority signups.
+                Demonstrate early interest to secure regional van travel stipends and priority signup status.
               </p>
 
               <div className={styles.inputGroup}>
@@ -141,14 +140,14 @@ export default function PreRegisterForm() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="e.g. feynman@purdue.edu"
+                  placeholder="e.g. student@purdue.edu"
                   className={`${styles.input} ${errors.email ? styles.inputError : ""}`}
                 />
                 {errors.email && <span className={styles.errorText}>{errors.email}</span>}
               </div>
 
               <div className={styles.inputGroup}>
-                <label htmlFor="university" className={styles.label}>University / Affiliation</label>
+                <label htmlFor="university" className={styles.label}>University / Chapter Affiliation</label>
                 <select
                   id="university"
                   name="university"
@@ -157,12 +156,12 @@ export default function PreRegisterForm() {
                   className={`${styles.select} ${errors.university ? styles.inputError : ""}`}
                 >
                   <option value="">-- Select Campus --</option>
-                  <option value="Purdue University">Purdue University</option>
-                  <option value="UIUC">University of Illinois Urbana-Champaign (UIUC)</option>
-                  <option value="UChicago">University of Chicago</option>
+                  <option value="Purdue University">Purdue University (QSO)</option>
+                  <option value="UIUC">University of Illinois Urbana-Champaign (IQUIST)</option>
+                  <option value="UChicago">University of Chicago (CQE)</option>
                   <option value="UIC">University of Illinois Chicago (UIC)</option>
-                  <option value="Northwestern">Northwestern University</option>
-                  <option value="UW-Madison">University of Wisconsin-Madison</option>
+                  <option value="Purdue NW">Purdue University Northwest (Purdue NW)</option>
+                  <option value="UW-Madison">University of Wisconsin-Madison (WQI)</option>
                   <option value="University of Michigan">University of Michigan</option>
                   <option value="Other">Other / Independent</option>
                 </select>
@@ -187,11 +186,7 @@ export default function PreRegisterForm() {
 
               <div className={styles.actions}>
                 <button type="button" className="btn btn-primary" onClick={handleNext}>
-                  Continue
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
+                  Continue →
                 </button>
               </div>
             </div>
@@ -208,9 +203,9 @@ export default function PreRegisterForm() {
                 <label className={styles.label}>Experience Level</label>
                 <div className={styles.radioGrid}>
                   {[
-                    { val: "beginner", title: "Beginner", desc: "No coding history / just curious about quantum science" },
-                    { val: "intermediate", title: "Intermediate", desc: "Know superposition/entanglement & simple quantum code" },
-                    { val: "advanced", title: "Advanced", desc: "Understand QEC, algorithms, or pulse-level hardware" },
+                    { val: "beginner", title: "Beginner", desc: "No prior coding history / curious about quantum science" },
+                    { val: "intermediate", title: "Intermediate", desc: "Know superposition/entanglement & basic Qiskit/Cirq" },
+                    { val: "advanced", title: "Advanced", desc: "Understand QEC, pulse control, or quantum algorithms" },
                   ].map((item) => (
                     <label
                       key={item.val}
@@ -241,7 +236,7 @@ export default function PreRegisterForm() {
                   name="comments"
                   value={formData.comments}
                   onChange={handleChange}
-                  placeholder="What do you hope to get out of the hackathon? Mention any travel grant questions..."
+                  placeholder="What do you hope to learn or build? Mention any travel grant needs..."
                   className={styles.textarea}
                   rows={4}
                 />
@@ -261,7 +256,7 @@ export default function PreRegisterForm() {
           {step === 3 && (
             <div className={`${styles.successContent} ${styles.fadeIn}`}>
               <div className={styles.successIcon}>
-                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--success)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </div>

@@ -57,7 +57,7 @@ export default function SuperpositionWidget() {
     <div className={`${styles.card} glass-panel`}>
       <h3 className={styles.title}>Qubit Sandbox</h3>
       <p className={styles.description}>
-        Adjust the slider to alter the probability of collapsing to \(|0\rangle\). Click "Measure" to trigger collapse!
+        Adjust the slider to alter the probability of collapsing to \(|0\rangle\). Click &quot;Measure&quot; to trigger collapse!
       </p>
 
       <div className={styles.sandbox}>

@@ -1,0 +1,186 @@
+.mapSection {
+  position: relative;
+  width: 100%;
+  padding: 5rem 1.5rem;
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 680px;
+}
+
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--foreground);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: var(--foreground-muted);
+  line-height: 1.6;
+}
+
+.mapWrapper {
+  position: relative;
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.mapCanvas {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 7 / 5;
+  background: #0a0b10;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+/* State outlines — NO hover effect (prevents pointer event interference) */
+.stateOutline {
+  fill: #111420;
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 0.8px;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+/* Right Side Side-Panel */
+.infoSidePanel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Fixed height wrapper to prevent layout shift on hover */
+.sidebarCardWrapper {
+  min-height: 160px;
+}
+
+.sidebarCard {
+  background: var(--bg-surface-raised);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebarCardActive {
+  border-color: var(--border-active);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.08);
+}
+
+.sidebarCardPlaceholder {
+  background: var(--bg-surface-raised);
+  border: 1px dashed var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--foreground-muted);
+  line-height: 1.5;
+}
+
+.sidebarCardTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.sidebarCardLab {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-gold);
+}
+
+.sidebarCardDesc {
+  font-size: 0.85rem;
+  color: var(--foreground-muted);
+  line-height: 1.5;
+}
+
+.uniList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.uniListItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.85rem;
+  background: var(--bg-surface-raised);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.uniListItem:hover,
+.uniListItemSelected {
+  border-color: var(--border-medium);
+  background: var(--bg-surface-hover);
+}
+
+.uniListLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.uniDotBadge {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.uniName {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.uniAcronym {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--foreground-subtle);
+}
+
+@media (max-width: 900px) {
+  .mapWrapper {
+    grid-template-columns: 1fr;
+  }
+}

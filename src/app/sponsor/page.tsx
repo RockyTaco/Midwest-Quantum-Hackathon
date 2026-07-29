@@ -30,11 +30,11 @@ export default function SponsorPage() {
       name: "Superposition",
       price: "$3,000",
       badge: "Silver Partner",
-      badgeClass: "badge-sage",
+      badgeClass: "badge-gold",
       description: "Engage deeply with participants, lead technical workshops, and judge challenges.",
       perks: [
         "All Coherence perks included",
-        "Shared physical recruiting table at UIUC or Chicago hub",
+        "Shared physical recruiting table at venue",
         "15-minute technical talk/demo slot",
         "Corporate representative judging seats",
         "Co-branded challenge track prompt",
@@ -44,11 +44,11 @@ export default function SponsorPage() {
       name: "Entanglement",
       price: "$5,000",
       badge: "Gold Partner",
-      badgeClass: "badge-purple",
+      badgeClass: "badge-emerald",
       description: "Command the main stage, design signature challenges, and host exclusive interviews.",
       perks: [
         "All Superposition perks included",
-        "Dedicated physical recruiting table at UIUC & Chicago hubs",
+        "Dedicated physical recruiting table",
         "10-minute keynote presentation slot",
         "Custom signature award category",
         "Early/pre-event resume book access",
@@ -64,7 +64,7 @@ export default function SponsorPage() {
         {/* Intro */}
         <section className={styles.intro}>
           <div className={styles.container}>
-            <span className="badge badge-purple">Sponsors & Partners</span>
+            <span className="badge badge-gold">Sponsors & Partners</span>
             <h1 className={styles.pageTitle}>Support Regional Quantum Innovation</h1>
             <p className={styles.pageSubtitle}>
               Partner with the Midwest Quantum Alliance to recruit top-tier CS and Physics students, 
@@ -78,7 +78,7 @@ export default function SponsorPage() {
           <div className={styles.container}>
             <div className={styles.grid}>
               {packages.map((pkg, idx) => (
-                <div key={idx} className={`${styles.card} editorial-panel`}>
+                <div key={idx} className={styles.card}>
                   <div className={styles.cardHeader}>
                     <span className={`badge ${pkg.badgeClass}`}>{pkg.badge}</span>
                     <h3 className={styles.pkgName}>{pkg.name}</h3>
@@ -106,10 +106,9 @@ export default function SponsorPage() {
         <section className={styles.budget}>
           <div className={styles.container}>
             <div className={styles.budgetWrapper}>
-              <h2 className={styles.sectionTitle}>Where Your Funding Goes</h2>
+              <h2 className={styles.sectionTitle}>Where Funding Goes</h2>
               <p className={styles.sectionDesc}>
-                We are committed to full operational transparency. Sponsoring funds are directly utilized to remove 
-                participation barriers for students across the Midwest.
+                Sponsoring funds are directly utilized to remove participation barriers for students across the Midwest.
               </p>
               
               <table className={styles.table}>
@@ -124,20 +123,20 @@ export default function SponsorPage() {
                   <tr>
                     <td><strong>Student Travel & Transit</strong></td>
                     <td>25%</td>
-                    <td>Fuel and rental stipends for shuttle vans linking Purdue, Chicago, and Urbana campuses.</td>
+                    <td>Fuel and rental stipends for shuttle vans linking regional student chapters to Chicago.</td>
                   </tr>
                   <tr>
                     <td><strong>Catering & Meals</strong></td>
                     <td>45%</td>
-                    <td>Keeping hackers fueled with breakfasts, lunches, dinners, coffee, and midnight pizza.</td>
+                    <td>Keeping hackers fueled with breakfasts, lunches, dinners, coffee, and snacks.</td>
                   </tr>
                   <tr>
                     <td><strong>Student Prize Pools</strong></td>
                     <td>20%</td>
-                    <td>Cash rewards and research seed grants for top projects in each challenge track.</td>
+                    <td>Rewards and grants for top projects in each challenge track.</td>
                   </tr>
                   <tr>
-                    <td><strong>Operations & Swag</strong></td>
+                    <td><strong>Operations & Materials</strong></td>
                     <td>10%</td>
                     <td>Workspace materials, name badges, student t-shirts, and printing costs.</td>
                   </tr>

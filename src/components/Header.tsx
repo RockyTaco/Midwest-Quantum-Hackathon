@@ -30,10 +30,11 @@ export default function Header() {
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ""} no-print`}>
       <div className={styles.container}>
+        {/* Bra-Ket Logo |MQH⟩ */}
         <Link href="/" className={styles.logo}>
-          <span className={styles.logoBracket}>[</span>
+          <span className={styles.logoBracket}>|</span>
           <span className={styles.logoText}>MQH</span>
-          <span className={styles.logoBracket}>]</span>
+          <span className={styles.logoBracket}>⟩</span>
           <span className={styles.logoTag}>Midwest</span>
         </Link>
 

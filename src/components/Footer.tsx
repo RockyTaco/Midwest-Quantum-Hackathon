@@ -8,13 +8,13 @@ export default function Footer() {
         <div className={styles.top}>
           <div className={styles.brand}>
             <Link href="/" className={styles.logo}>
-              <span className={styles.logoBracket}>[</span>
+              <span className={styles.logoBracket}>|</span>
               <span className={styles.logoText}>MQH</span>
-              <span className={styles.logoBracket}>]</span>
+              <span className={styles.logoBracket}>⟩</span>
             </Link>
             <p className={styles.brandText}>
-              A joint student-led hackathon co-founded by Purdue QSO, UIUC IQUIST, and the Chicago Quantum Exchange. 
-              Connecting builders, researchers, and sponsors across the Midwest.
+              Founded by student orgs from Purdue University, UIUC, University of Chicago, 
+              UW-Madison, Purdue NW, and UIC. Connecting student builders across the Midwest.
             </p>
           </div>
 
@@ -22,27 +22,27 @@ export default function Footer() {
             <h4 className={styles.columnTitle}>Navigation</h4>
             <Link href="/" className={styles.link}>Home</Link>
             <Link href="/about" className={styles.link}>About MQH</Link>
-            <Link href="/sponsor" className={styles.link}>Sponsorship Packages</Link>
-            <Link href="/register" className={styles.link}>Pre-Register Form</Link>
+            <Link href="/sponsor" className={styles.link}>Sponsorship Interest</Link>
+            <Link href="/register" className={styles.link}>Pre-Register Waitlist</Link>
           </div>
 
           <div className={styles.linkColumn}>
-            <h4 className={styles.columnTitle}>Cooperating Representatives</h4>
-            <span className={styles.partnerText}>Purdue Quantum Student Org</span>
-            <span className={styles.partnerText}>UIUC IQUIST Institute</span>
-            <span className={styles.partnerText}>Chicago Quantum Exchange</span>
-            <span className={styles.partnerText}>UIC Chicago Quantum Chapter</span>
+            <h4 className={styles.columnTitle}>Participating Student Orgs</h4>
+            <span className={styles.partnerText}>Purdue Quantum Student Org (QSO)</span>
+            <span className={styles.partnerText}>UIUC Student Quantum Chapter</span>
+            <span className={styles.partnerText}>UChicago Student Quantum Group</span>
+            <span className={styles.partnerText}>UW-Madison Quantum Club</span>
+            <span className={styles.partnerText}>Purdue NW & UIC Student Chapters</span>
           </div>
         </div>
 
         <div className={styles.bottom}>
           <p className={styles.copy}>
-            &copy; 2026 Midwest Quantum Hackathon. All rights reserved. 
-            Organized independently by student groups and academic representatives.
+            &copy; 2026 Midwest Quantum Hackathon. Organized by student organizations.
           </p>
           <div className={styles.status}>
             <span className={styles.statusDot}></span>
-            Pre-Planning Phase | Autumn 2026
+            Student-Led Initiative | Autumn 2026
           </div>
         </div>
       </div>

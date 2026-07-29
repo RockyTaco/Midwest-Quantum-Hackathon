@@ -1,12 +1,14 @@
 .card {
   width: 100%;
   max-width: 380px;
-  padding: 1.75rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background: rgba(255, 255, 255, 0.75);
+  background: var(--bg-surface-raised);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
 }
 
 .title {
@@ -14,10 +16,11 @@
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
   color: var(--foreground);
+  font-weight: 600;
 }
 
 .description {
-  font-size: 0.825rem;
+  font-size: 0.85rem;
   color: var(--foreground-muted);
   line-height: 1.5;
   margin-bottom: 1.5rem;
@@ -44,73 +47,68 @@
 }
 
 .qubit {
-  width: 100px;
-  height: 100px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   color: var(--foreground);
-  border: 2.5px solid var(--foreground);
-  background: #ffffff;
-  box-shadow: var(--shadow-ambient);
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid var(--border-medium);
+  background: var(--bg-surface);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
 }
 
-/* Hover wobble */
 .qubit:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.15);
+  transform: scale(1.04);
+  border-color: var(--accent-gold);
 }
 
-/* Superposition glowing background */
+/* Superposition state */
 .superpositionState {
-  background: linear-gradient(135deg, #a5f3fc 0%, #c084fc 100%);
-  border-color: #7c3aed;
-  color: #1e1b4b;
-  animation: float 3s ease-in-out infinite;
+  background: rgba(245, 158, 11, 0.1);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
 }
 
 /* Measuring spinning state */
 .measuringState {
   animation: spin 0.25s linear infinite !important;
-  background: conic-gradient(from 0deg, #a5f3fc, #c084fc, #fed7aa, #a5f3fc);
-  border-color: #6d28d9;
+  background: var(--bg-surface-hover);
+  border-color: var(--accent-cyan);
 }
 
-/* Collapsed state 0 (Cyan) */
+/* Collapsed state 0 (Emerald) */
 .collapsedZero {
-  background: #ecfdf5;
-  border-color: #10b981;
-  color: #064e3b;
-  box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+  background: rgba(16, 185, 129, 0.15);
+  border-color: var(--accent-emerald);
+  color: var(--accent-emerald);
 }
 
-/* Collapsed state 1 (Lavender/Purple) */
+/* Collapsed state 1 (Gold/Crimson) */
 .collapsedOne {
-  background: #faf5ff;
-  border-color: #8b5cf6;
-  color: #4c1d95;
-  box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+  background: rgba(244, 63, 94, 0.15);
+  border-color: var(--accent-crimson);
+  color: var(--accent-crimson);
 }
 
-/* Orbital ring around the qubit */
+/* Orbit ring */
 .orbit {
   position: absolute;
   width: 120px;
   height: 40px;
-  border: 1px dashed rgba(139, 92, 246, 0.4);
+  border: 1px dashed var(--border-medium);
   border-radius: 50%;
   transform: rotate(-20deg);
   pointer-events: none;
 }
 
 .orbitSpinning {
-  border-color: #8b5cf6;
+  border-color: var(--accent-gold);
   animation: spinSlow 3s linear infinite;
 }
 
@@ -125,7 +123,7 @@
   justify-content: space-between;
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 0.5rem;
   color: var(--foreground-muted);
 }
@@ -140,9 +138,9 @@
 .slider {
   -webkit-appearance: none;
   width: 100%;
-  height: 6px;
-  border-radius: 3px;
-  background: #e2e8f0;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border-subtle);
   outline: none;
   transition: background 0.3s;
 }
@@ -150,12 +148,11 @@
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background: var(--foreground);
-  border: 2px solid #ffffff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  background: var(--accent-gold);
+  border: 2px solid #000000;
   cursor: pointer;
   transition: transform 0.1s ease;
 }
@@ -171,20 +168,19 @@
   width: 100%;
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--foreground-muted);
   margin-top: 0.5rem;
 }
 
 .probZero {
-  color: #10b981;
+  color: var(--accent-emerald);
 }
 
 .probOne {
-  color: #8b5cf6;
+  color: var(--accent-gold);
 }
 
-/* Action button */
 .measureBtn {
   width: 100%;
   margin-bottom: 1rem;
@@ -195,9 +191,15 @@
   font-size: 0.75rem;
   font-weight: 600;
   min-height: 24px;
+  color: var(--foreground-muted);
 }
 
 @keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinSlow {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
