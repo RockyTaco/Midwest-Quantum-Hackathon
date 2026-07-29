@@ -21,6 +21,19 @@ const PROJECTION_CONFIG = {
 const W = 700;
 const H = 500;
 
+// High-contrast, harmonious cool state fills & crisp border colors by FIPS code
+const STATE_STYLES: Record<string, { fill: string; stroke: string }> = {
+  "17": { fill: "#151e3a", stroke: "#38bdf8" }, // Illinois (Chicago Convergence Core)
+  "18": { fill: "#12172b", stroke: "#8b5cf6" }, // Indiana (Purdue & Purdue NW)
+  "55": { fill: "#191638", stroke: "#a855f7" }, // Wisconsin (UW-Madison)
+  "26": { fill: "#0f1f3d", stroke: "#3b82f6" }, // Michigan
+  "19": { fill: "#111b32", stroke: "#6366f1" }, // Iowa
+  "29": { fill: "#171833", stroke: "#8b5cf6" }, // Missouri
+  "39": { fill: "#0e2036", stroke: "#06b6d4" }, // Ohio
+  "21": { fill: "#131b32", stroke: "#3b82f6" }, // Kentucky
+  "27": { fill: "#191736", stroke: "#c084fc" }, // Minnesota
+};
+
 interface Hub {
   id: string;
   name: string;
@@ -175,21 +188,33 @@ export default function MidwestMap() {
               height={H}
               style={{ width: "100%", height: "100%" }}
             >
+              {/* High contrast state outlines with unique fills & crisp borders */}
               <Geographies geography={GEO_URL}>
-                {({ geographies }: { geographies: Array<{ rsmKey: string }> }) =>
-                  geographies.map((geo) => (
-                    <Geography
-                      key={geo.rsmKey}
-                      geography={geo}
-                      className={styles.stateOutline}
-                      tabIndex={-1}
-                      style={{
-                        default: { outline: "none" },
-                        hover: { outline: "none" },
-                        pressed: { outline: "none" },
-                      }}
-                    />
-                  ))
+                {({ geographies }: { geographies: Array<{ rsmKey: string; id?: string }> }) =>
+                  geographies.map((geo) => {
+                    const styleConfig = STATE_STYLES[geo.id || ""] || {
+                      fill: "#0d1324",
+                      stroke: "rgba(168, 85, 247, 0.22)",
+                    };
+
+                    return (
+                      <Geography
+                        key={geo.rsmKey}
+                        geography={geo}
+                        fill={styleConfig.fill}
+                        stroke={styleConfig.stroke}
+                        strokeWidth="1.2px"
+                        strokeLinejoin="round"
+                        tabIndex={-1}
+                        pointerEvents="none"
+                        style={{
+                          default: { outline: "none" },
+                          hover: { outline: "none" },
+                          pressed: { outline: "none" },
+                        }}
+                      />
+                    );
+                  })
                 }
               </Geographies>
 
