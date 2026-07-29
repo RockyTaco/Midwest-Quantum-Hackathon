@@ -124,11 +124,12 @@ export default function MidwestMap() {
       if (!sectionRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
       const wh = window.innerHeight;
-      // Start animation when section enters lower third of viewport
-      // (i.e., when top of section passes wh * 0.33 from bottom = wh * 0.67 from top)
-      const triggerPoint = wh * 1.1;
+
+      // Start animation when top of map section scrolls down to 35% of viewport height (further down the page)
+      const triggerPoint = wh * 0.35;
       const distanceScrolled = triggerPoint - rect.top;
-      const total = rect.height * 0.55;
+      const total = rect.height * 0.5;
+
       setScrollProgress(Math.min(1, Math.max(0, distanceScrolled / total)));
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -136,7 +137,6 @@ export default function MidwestMap() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Use a ref to track activeHubId so callbacks don't cause re-closure issues
   const handleEnter = useCallback((id: string) => {
     activeRef.current = id;
     setActiveHubId(id);
@@ -231,8 +231,8 @@ export default function MidwestMap() {
                   const dy = chicagoPt[1] - fromPt[1];
                   const lineLength = Math.sqrt(dx * dx + dy * dy);
 
-                  // Only show arrowhead once line is mostly drawn
-                  const showArrow = scrollProgress > 0.85;
+                  // Show arrowhead once line is extending
+                  const showArrow = scrollProgress > 0.3;
 
                   return (
                     <path
@@ -264,13 +264,13 @@ export default function MidwestMap() {
                 <circle r="4" fill="#f43f5e" pointerEvents="none" />
               </Marker>
 
-              {/* University nodes — completely stable DOM, no conditional rendering */}
+              {/* University nodes — completely stable DOM */}
               {HUBS.map((hub) => {
                 const isActive = activeHubId === hub.id;
 
                 return (
                   <Marker key={hub.id} coordinates={hub.coords}>
-                    {/* Always-present glow ring, controlled via opacity only */}
+                    {/* Always-present glow ring */}
                     <circle
                       r="12"
                       fill="none"
@@ -280,7 +280,7 @@ export default function MidwestMap() {
                       pointerEvents="none"
                       style={{ transition: "opacity 0.15s ease" }}
                     />
-                    {/* Main colored dot — size never changes */}
+                    {/* Main colored dot */}
                     <circle
                       r={hub.isTarget ? 6 : 5}
                       fill={hub.color}
@@ -289,7 +289,7 @@ export default function MidwestMap() {
                       pointerEvents="none"
                       style={{ transition: "stroke 0.15s ease, stroke-width 0.15s ease" }}
                     />
-                    {/* Invisible stable hit circle — largest, on top for pointer events */}
+                    {/* Invisible stable hit circle */}
                     <circle
                       r="20"
                       fill="transparent"
@@ -304,7 +304,7 @@ export default function MidwestMap() {
             </ComposableMap>
           </div>
 
-          {/* Side panel with fixed min-height to prevent layout shift */}
+          {/* Side panel */}
           <div className={styles.infoSidePanel}>
             <div className={styles.sidebarCardWrapper}>
               {activeHub ? (
