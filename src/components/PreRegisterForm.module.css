@@ -7,8 +7,9 @@
 .formCard {
   padding: 3rem;
   background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(168, 85, 247, 0.25);
   border-radius: var(--radius-lg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 /* Progress bar */
@@ -33,7 +34,7 @@
 }
 
 .progressPercent {
-  color: var(--accent-gold);
+  color: var(--accent-cyan);
   font-weight: 700;
 }
 
@@ -46,7 +47,7 @@
 
 .progressBar {
   height: 100%;
-  background: var(--accent-gold);
+  background: linear-gradient(90deg, #38bdf8 0%, #a855f7 100%);
   border-radius: 2px;
   transition: width 0.3s ease;
 }
@@ -106,15 +107,16 @@
 }
 
 .select option {
-  background: #11131c;
+  background: #0e1222;
   color: #ffffff;
 }
 
 .input:focus,
 .select:focus,
 .textarea:focus {
-  border-color: var(--border-active);
+  border-color: var(--accent-cyan);
   background: var(--bg-surface-hover);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
 }
 
 .inputError {
@@ -152,8 +154,9 @@
 }
 
 .radioSelected {
-  border-color: var(--accent-gold) !important;
-  background: rgba(245, 158, 11, 0.05) !important;
+  border-color: var(--accent-cyan) !important;
+  background: rgba(56, 189, 248, 0.08) !important;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
 }
 
 .hiddenRadio {
@@ -178,7 +181,7 @@
 }
 
 .radioSelected .radioTitle {
-  color: var(--accent-gold);
+  color: var(--accent-cyan);
 }
 
 .actions {
@@ -206,8 +209,8 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -17,7 +17,7 @@ export default function SponsorPage() {
       name: "Coherence",
       price: "$1,500",
       badge: "Associate",
-      badgeClass: "badge-gray",
+      badgeClass: "badge-cyan",
       description: "Establish your brand presence and gain access to the collective talent pool.",
       perks: [
         "Digital resume database access",
@@ -30,7 +30,7 @@ export default function SponsorPage() {
       name: "Superposition",
       price: "$3,000",
       badge: "Silver Partner",
-      badgeClass: "badge-gold",
+      badgeClass: "badge-purple",
       description: "Engage deeply with participants, lead technical workshops, and judge challenges.",
       perks: [
         "All Coherence perks included",
@@ -44,7 +44,7 @@ export default function SponsorPage() {
       name: "Entanglement",
       price: "$5,000",
       badge: "Gold Partner",
-      badgeClass: "badge-emerald",
+      badgeClass: "badge-blue",
       description: "Command the main stage, design signature challenges, and host exclusive interviews.",
       perks: [
         "All Superposition perks included",
@@ -64,7 +64,7 @@ export default function SponsorPage() {
         {/* Intro */}
         <section className={styles.intro}>
           <div className={styles.container}>
-            <span className="badge badge-gold">Sponsors & Partners</span>
+            <span className="badge badge-purple">Sponsors & Partners</span>
             <h1 className={styles.pageTitle}>Support Regional Quantum Innovation</h1>
             <p className={styles.pageSubtitle}>
               Partner with the Midwest Quantum Alliance to recruit top-tier CS and Physics students, 

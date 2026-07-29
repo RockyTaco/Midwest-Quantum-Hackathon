@@ -10,7 +10,7 @@ export default function RegisterPage() {
       <main className={styles.main}>
         <div className={styles.container}>
           <div className={styles.intro}>
-            <span className="badge badge-orange">Join the waitlist</span>
+            <span className="badge badge-purple">Join the waitlist</span>
             <h1 className={styles.title}>Submit Pre-Registration Interest</h1>
             <p className={styles.subtitle}>
               Secure early access to signup portals, request regional travel vans, and sign up for 
