@@ -1,69 +1,134 @@
 # |MQH⟩ — Midwest Quantum Hackathon
 
-A student-led quantum computing hackathon organized by student organizations from six Midwest universities, converging in Chicago for autumn 2026.
+[![Next.js](https://img.shields.io/badge/Next.js-16.2.10-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vercel Status](https://img.shields.io/badge/Deployed_on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://midwest-quantum-hackathon.vercel.app)
+[![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-## Participating Student Organizations
+> **Autumn 2026 | Chicago, IL**  
+> A collaborative student-led initiative co-organized by quantum computing student organizations across six Midwest universities, converging in Chicago.
 
-| University | Student Org |
-|---|---|
-| Purdue University | [Quantum Student Organization (QSO)](https://qsopurdue.org) |
-| UIUC | Illinois Student Quantum Club |
-| University of Chicago | Chicago Student Quantum Group |
-| UW-Madison | Wisconsin Quantum Student Club |
-| Purdue University Northwest | Purdue NW Quantum Chapter |
-| University of Illinois Chicago | UIC Quantum Chapter |
+---
 
-## Tech Stack
+## 🚀 Live Demo & Links
 
-- **Framework**: [Next.js 16](https://nextjs.org/) with App Router
+- **Live Production Site**: **[https://midwest-quantum-hackathon.vercel.app](https://midwest-quantum-hackathon.vercel.app)**
+- **Public GitHub Repository**: **[https://github.com/RockyTaco/Midwest-Quantum-Hackathon](https://github.com/RockyTaco/Midwest-Quantum-Hackathon)**
+
+---
+
+## 🏛️ Participating Student Organizations
+
+| University | Student Organization | Location |
+|---|---|---|
+| **Purdue University** | [Quantum Student Organization (QSO)](https://qsopurdue.org) | West Lafayette, IN |
+| **UIUC** | Illinois Student Quantum Club | Urbana-Champaign, IL |
+| **University of Chicago** | Chicago Student Quantum Group | Hyde Park, Chicago, IL |
+| **UW-Madison** | Wisconsin Quantum Student Club | Madison, WI |
+| **Purdue University Northwest** | Purdue NW Quantum Chapter | Hammond, IN |
+| **University of Illinois Chicago** | UIC Quantum Chapter | Near West Side, Chicago, IL |
+
+---
+
+## ✨ Features
+
+- **Interactive Scroll-Driven Midwest Map**: Dynamic map rendered with `react-simple-maps` and `d3-geo` projection (`geoAlbers`), featuring crisp state outlines, hover card tooltips, and scroll-triggered trajectory lines with arrowhead (`>`) tips extending into Chicago.
+- **Student Coalition Directory**: Profiles of founding university chapters with links and background context.
+- **Formal Sponsorship Model**: Multi-tiered partner packages (`Coherence` $1,500, `Superposition` $3,000, `Entanglement` $5,000) and budget breakdown table.
+- **Multi-Step Pre-Registration Portal**: Interactive form for student hackers to demonstrate early interest and request regional travel stipends.
+- **Cosmic Indigo Design System**: Pristine dark mode aesthetics with cosmic purple (`#a855f7`), photon cyan (`#38bdf8`), electric blue (`#3b82f6`), and ambient lighting glow effects.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router, Turbopack)
 - **Language**: TypeScript
-- **Styling**: CSS Modules
-- **Map**: [react-simple-maps](https://www.react-simple-maps.io/) with d3-geo
-- **Fonts**: Inter, Lora, Space Mono (via `next/font/google`)
+- **Styling**: CSS Modules with CSS Variables design system
+- **Geographic Projection**: `react-simple-maps` + `d3-geo`
+- **Typography**: Inter & Space Mono (via `next/font/google`)
+- **Hosting & CI/CD**: Vercel
 
-## Getting Started
+---
+
+## 📂 Project Structure
+
+```
+.
+├── src/
+│   ├── app/
+│   │   ├── page.tsx               # Homepage (Hero, Interactive Map, Partners Bar, Gateways)
+│   │   ├── about/
+│   │   │   ├── page.tsx           # Mission, Event Tracks, Student Orgs & FAQ
+│   │   │   └── AboutPage.module.css
+│   │   ├── sponsor/
+│   │   │   ├── page.tsx           # Sponsorship Tiers & Budget Allocation
+│   │   │   └── Sponsor.module.css
+│   │   ├── register/
+│   │   │   ├── page.tsx           # Student Pre-Registration Waitlist Portal
+│   │   │   └── RegisterPage.module.css
+│   │   ├── globals.css            # Cosmic Indigo design tokens & root styles
+│   │   └── layout.tsx             # Root layout & font configurations
+│   ├── components/
+│   │   ├── Header.tsx             # Fixed navbar with |MQH⟩ logo
+│   │   ├── Hero.tsx               # Main hero section
+│   │   ├── MidwestMap.tsx         # Scroll-animated Midwest convergence map
+│   │   ├── PreRegisterForm.tsx    # Multi-step waitlist form
+│   │   └── Footer.tsx             # Site footer
+│   └── public/
+│       └── images/                # Logos & image assets
+├── vercel.json                    # Vercel deployment configuration
+└── package.json
+```
+
+---
+
+## 💻 Local Development
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/RockyTaco/Midwest-Quantum-Hackathon.git
+   cd Midwest-Quantum-Hackathon
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install --legacy-peer-deps
+   ```
+
+3. **Start the development server**:
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## 📦 Building for Production
 
 ```bash
-# Install dependencies
-npm install
-
-# Run dev server
-npm run dev
-
-# Build for production
+# Type check and build Next.js production bundle
 npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+---
 
-## Project Structure
+## 🤝 Contributing
 
-```
-src/
-├── app/
-│   ├── page.tsx            # Homepage — hero, map, partner grid, gateway cards
-│   ├── about/page.tsx      # About — mission, what to expect, student orgs, FAQ
-│   ├── sponsor/page.tsx    # Sponsorship tiers & budget breakdown
-│   ├── register/page.tsx   # Pre-registration waitlist form
-│   ├── globals.css         # Design system tokens & base styles
-│   └── layout.tsx          # Root layout with font loading
-├── components/
-│   ├── Header.tsx          # Fixed navbar with |MQH⟩ logo
-│   ├── Hero.tsx            # Landing hero section
-│   ├── MidwestMap.tsx      # Interactive scroll-animated map
-│   └── Footer.tsx          # Site footer
-└── public/
-    └── images/             # Logos and assets
-```
+We welcome contributions from student chapters, developers, and designers across the Midwest!
 
-## Contributing
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/new-chapter-profile`)
+3. **Commit** your changes (`git commit -m "feat: add chapter profile"`)
+4. **Push** to the branch (`git push origin feature/new-chapter-profile`)
+5. **Open** a Pull Request
 
-This project is organized by student orgs across the Midwest. If your university has a quantum computing student organization and you'd like to get involved:
+---
 
-1. Fork this repo
-2. Add your student org to the About page
-3. Submit a pull request
+## 📄 License
 
-## License
-
-MIT
+Distributed under the MIT License. See `LICENSE` for details.
