@@ -1,40 +1,40 @@
 :root {
-  --bg-primary: #07080c;
-  --bg-surface: #0f1118;
-  --bg-surface-raised: #161922;
-  --bg-surface-hover: #1c2030;
+  --bg-primary: #06070a;
+  --bg-surface: #0c0e15;
+  --bg-surface-raised: #131722;
+  --bg-surface-hover: #191e2c;
 
-  --foreground: #f1f5f9;
-  --foreground-muted: #8b99b3;
-  --foreground-subtle: #566580;
+  --foreground: #f8fafc;
+  --foreground-muted: #94a3b8;
+  --foreground-subtle: #64748b;
 
-  --border-subtle: rgba(255, 255, 255, 0.07);
-  --border-medium: rgba(255, 255, 255, 0.13);
-  --border-active: rgba(255, 255, 255, 0.28);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.16);
+  --border-active: rgba(245, 158, 11, 0.4);
 
-  /* Accents */
-  --accent-gold: #e8960c;
-  --accent-gold-bg: rgba(232, 150, 12, 0.08);
-  --accent-gold-border: rgba(232, 150, 12, 0.25);
+  /* Precise Technical Accents */
+  --accent-gold: #f59e0b;
+  --accent-gold-bg: rgba(245, 158, 11, 0.1);
+  --accent-gold-border: rgba(245, 158, 11, 0.3);
 
   --accent-emerald: #10b981;
-  --accent-emerald-bg: rgba(16, 185, 129, 0.08);
-  --accent-emerald-border: rgba(16, 185, 129, 0.25);
+  --accent-emerald-bg: rgba(16, 185, 129, 0.1);
+  --accent-emerald-border: rgba(16, 185, 129, 0.3);
 
   --accent-crimson: #f43f5e;
-  --accent-crimson-bg: rgba(244, 63, 94, 0.08);
-  --accent-crimson-border: rgba(244, 63, 94, 0.25);
+  --accent-crimson-bg: rgba(244, 63, 94, 0.1);
+  --accent-crimson-border: rgba(244, 63, 94, 0.3);
 
   --accent-cyan: #38bdf8;
-  --accent-cyan-bg: rgba(56, 189, 248, 0.08);
-  --accent-cyan-border: rgba(56, 189, 248, 0.25);
+  --accent-cyan-bg: rgba(56, 189, 248, 0.1);
+  --accent-cyan-border: rgba(56, 189, 248, 0.3);
 
   --radius-lg: 14px;
   --radius-md: 8px;
   --radius-sm: 4px;
   --radius-full: 9999px;
 
-  /* Fonts — Inter loaded via Next.js layout */
+  /* Fonts */
   --font-heading: var(--font-inter), system-ui, -apple-system, sans-serif;
   --font-body: var(--font-inter), system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-mono), ui-monospace, "SF Mono", monospace;
@@ -99,7 +99,7 @@ a {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: 1.75rem;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
 
 .editorial-panel:hover,
@@ -136,17 +136,18 @@ a {
 }
 
 .btn-primary {
-  background-color: var(--foreground);
-  color: #050608;
-  border-color: var(--foreground);
+  background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 100%);
+  color: #06070a;
+  border-color: #ffffff;
   font-weight: 700;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
 .btn-primary:hover {
-  background-color: #cbd5e1;
-  border-color: #cbd5e1;
+  background: #ffffff;
+  border-color: #ffffff;
   transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
 }
 
 .btn-secondary {
@@ -167,7 +168,7 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.22rem 0.6rem;
+  padding: 0.25rem 0.65rem;
   font-family: var(--font-mono);
   font-size: 0.66rem;
   font-weight: 600;
