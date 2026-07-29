@@ -48,7 +48,7 @@ export default function Home() {
                 <span className={styles.colNum}>[ 01 ]</span>
                 <h3 className={styles.cardTitle}>About the Hackathon</h3>
                 <p className={styles.cardText}>
-                  Founded by student orgs from Purdue University, UIUC, UChicago, UW-Madison, Purdue NW, and UIC 
+                  Organized by student orgs from UIUC, UChicago, Purdue University, UW-Madison, Purdue NW, and UIC 
                   to build a regional student quantum network.
                 </p>
                 <Link href="/about" className={styles.cardLink}>

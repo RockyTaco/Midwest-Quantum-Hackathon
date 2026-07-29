@@ -125,10 +125,10 @@ export default function MidwestMap() {
       const rect = sectionRef.current.getBoundingClientRect();
       const wh = window.innerHeight;
 
-      // Start animation when top of map section scrolls down to 35% of viewport height (further down the page)
-      const triggerPoint = wh * 0.35;
+      // Start animation a smidgen lower on the page (when map section top reaches 20% of viewport height)
+      const triggerPoint = wh * 0.2;
       const distanceScrolled = triggerPoint - rect.top;
-      const total = rect.height * 0.5;
+      const total = rect.height * 0.55;
 
       setScrollProgress(Math.min(1, Math.max(0, distanceScrolled / total)));
     };
@@ -175,32 +175,6 @@ export default function MidwestMap() {
               height={H}
               style={{ width: "100%", height: "100%" }}
             >
-              {/* SVG defs for arrowhead markers */}
-              <defs>
-                <marker
-                  id="arrowhead"
-                  markerWidth="10"
-                  markerHeight="8"
-                  refX="9"
-                  refY="4"
-                  orient="auto"
-                  markerUnits="userSpaceOnUse"
-                >
-                  <path d="M 0 0 L 10 4 L 0 8 L 2 4 Z" fill="#f59e0b" />
-                </marker>
-                <marker
-                  id="arrowhead-active"
-                  markerWidth="12"
-                  markerHeight="10"
-                  refX="11"
-                  refY="5"
-                  orient="auto"
-                  markerUnits="userSpaceOnUse"
-                >
-                  <path d="M 0 0 L 12 5 L 0 10 L 2.5 5 Z" fill="#ffffff" />
-                </marker>
-              </defs>
-
               <Geographies geography={GEO_URL}>
                 {({ geographies }: { geographies: Array<{ rsmKey: string }> }) =>
                   geographies.map((geo) => (
@@ -219,7 +193,7 @@ export default function MidwestMap() {
                 }
               </Geographies>
 
-              {/* Arrow lines with arrowhead tips */}
+              {/* Dynamic Extending Arrows with Arrowhead (>) riding at the extending tip */}
               {chicagoPt &&
                 ARROW_HUB_IDS.map((hubId) => {
                   const hub = HUBS.find((h) => h.id === hubId)!;
@@ -229,29 +203,50 @@ export default function MidwestMap() {
 
                   const dx = chicagoPt[0] - fromPt[0];
                   const dy = chicagoPt[1] - fromPt[1];
-                  const lineLength = Math.sqrt(dx * dx + dy * dy);
+                  const angle = Math.atan2(dy, dx) * (180 / Math.PI);
 
-                  // Show arrowhead once line is extending
-                  const showArrow = scrollProgress > 0.3;
+                  // Calculate current extending tip coordinates
+                  const tipX = fromPt[0] + dx * scrollProgress;
+                  const tipY = fromPt[1] + dy * scrollProgress;
+
+                  const strokeColor = isHubActive ? "#ffffff" : "#f59e0b";
+                  const strokeWidth = isHubActive ? 3.5 : 2.5;
 
                   return (
-                    <path
-                      key={`arrow-${hubId}`}
-                      d={`M ${fromPt[0]} ${fromPt[1]} L ${chicagoPt[0]} ${chicagoPt[1]}`}
-                      fill="none"
-                      stroke={isHubActive ? "#ffffff" : "#f59e0b"}
-                      strokeWidth={isHubActive ? 3 : 2}
-                      strokeLinecap="round"
-                      strokeDasharray={lineLength}
-                      strokeDashoffset={lineLength * (1 - scrollProgress)}
-                      markerEnd={showArrow ? `url(#${isHubActive ? "arrowhead-active" : "arrowhead"})` : undefined}
-                      pointerEvents="none"
-                      style={{ transition: "stroke 0.2s ease, stroke-width 0.2s ease" }}
-                    />
+                    <g key={`arrow-${hubId}`} pointerEvents="none">
+                      {/* Extending line from university node to current tip */}
+                      {scrollProgress > 0.01 && (
+                        <line
+                          x1={fromPt[0]}
+                          y1={fromPt[1]}
+                          x2={tipX}
+                          y2={tipY}
+                          stroke={strokeColor}
+                          strokeWidth={strokeWidth}
+                          strokeLinecap="round"
+                          style={{ transition: "stroke 0.2s ease, stroke-width 0.2s ease" }}
+                        />
+                      )}
+
+                      {/* Arrowhead (>) at extending tip */}
+                      {scrollProgress > 0.05 && (
+                        <g transform={`translate(${tipX}, ${tipY}) rotate(${angle})`}>
+                          <path
+                            d="M -7 -5 L 3 0 L -7 5"
+                            fill="none"
+                            stroke={strokeColor}
+                            strokeWidth={strokeWidth}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            style={{ transition: "stroke 0.2s ease, stroke-width 0.2s ease" }}
+                          />
+                        </g>
+                      )}
+                    </g>
                   );
                 })}
 
-              {/* Chicago convergence dot */}
+              {/* Chicago convergence target zone */}
               <Marker coordinates={CHICAGO}>
                 <circle
                   r={scrollProgress > 0.1 ? 14 * scrollProgress : 0}

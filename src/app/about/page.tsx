@@ -77,7 +77,7 @@ export default function AboutPage() {
             <h1 className={styles.pageTitle}>About |MQH⟩</h1>
             <p className={styles.pageSubtitle}>
               The Midwest Quantum Hackathon is organized entirely by student organizations across six
-              regional universities. Our goal is to build a long-term Midwest quantum builder
+              regional universities, and we're still growing. Our goal is to build a long-term Midwest quantum builder
               community — by students, for students.
             </p>
           </div>
@@ -91,10 +91,9 @@ export default function AboutPage() {
                 <span className="badge badge-emerald">Our Mission</span>
                 <h2 className={styles.missionTitle}>Why MQH Exists</h2>
                 <p className={styles.missionBody}>
-                  Quantum computing is growing rapidly, but most student exposure stops at theory.
+                  Quantum technologies are growing rapidly, but most student exposure stops at theory.
                   MQH bridges that gap by giving undergrads and graduate students across the Midwest
-                  a space to build, collaborate, and learn from each other — not just listen to
-                  lectures.
+                  a space to build, collaborate, and learn from each other.
                 </p>
                 <p className={styles.missionBody}>
                   We believe the strongest quantum workforce will emerge from students who have
@@ -156,7 +155,7 @@ export default function AboutPage() {
                 <h3 className={styles.expectCardTitle}>Cross-Campus Teams</h3>
                 <p className={styles.expectCardBody}>
                   Form teams across university boundaries. Meet students from other schools, combine
-                  complementary skills, and build something together over the weekend.
+                  complementary skills, and build something together.
                 </p>
               </div>
               <div className={styles.expectCard}>
