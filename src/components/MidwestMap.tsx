@@ -125,10 +125,10 @@ export default function MidwestMap() {
       const rect = sectionRef.current.getBoundingClientRect();
       const wh = window.innerHeight;
 
-      // Start animation a smidgen lower on the page (when map section top reaches 20% of viewport height)
-      const triggerPoint = wh * 0.2;
+      // Start animation higher up on the page (when map section top reaches 55% of viewport height)
+      const triggerPoint = wh * 0.55;
       const distanceScrolled = triggerPoint - rect.top;
-      const total = rect.height * 0.55;
+      const total = rect.height * 0.6;
 
       setScrollProgress(Math.min(1, Math.max(0, distanceScrolled / total)));
     };
