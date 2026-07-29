@@ -9,18 +9,19 @@
   overflow: hidden;
 }
 
-/* Subtle background grid & ambient quantum glow */
+/* Ambient cosmic purple & electric blue background glow */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle at 30% 30%, rgba(245, 158, 11, 0.05), transparent 50%),
-    radial-gradient(circle at 70% 60%, rgba(56, 189, 248, 0.04), transparent 50%),
+    radial-gradient(circle at 25% 25%, rgba(168, 85, 247, 0.12), transparent 50%),
+    radial-gradient(circle at 75% 65%, rgba(56, 189, 248, 0.1), transparent 50%),
+    radial-gradient(circle at 50% 85%, rgba(99, 102, 241, 0.08), transparent 60%),
     linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
-  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 40%, black 30%, transparent 100%);
   pointer-events: none;
 }
 
@@ -68,10 +69,10 @@
 }
 
 .accentText {
-  background: linear-gradient(135deg, var(--accent-gold) 0%, #fbbf24 100%);
+  background: linear-gradient(135deg, #38bdf8 0%, #a855f7 50%, #c084fc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 600;
+  font-weight: 700;
   font-style: normal;
   letter-spacing: -0.03em;
 }
@@ -97,8 +98,9 @@
 
 /* Right side panel */
 .heroSidePanel {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
+  background: rgba(14, 18, 34, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(168, 85, 247, 0.2);
   border-radius: var(--radius-lg);
   padding: 2rem 1.75rem;
   display: flex;
@@ -106,7 +108,7 @@
   gap: 1.1rem;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(168, 85, 247, 0.05);
 }
 
 .heroSidePanel::after {
@@ -115,8 +117,8 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+  height: 2px;
+  background: linear-gradient(90deg, #38bdf8, #a855f7, #6366f1);
 }
 
 .panelTitle {
@@ -151,7 +153,9 @@
   font-family: var(--font-heading);
   font-size: 1.6rem;
   font-weight: 700;
-  color: var(--accent-gold);
+  background: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   line-height: 1;
 }
 

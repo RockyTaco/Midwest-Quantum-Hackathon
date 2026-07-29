@@ -46,30 +46,31 @@
   position: relative;
   width: 100%;
   background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(168, 85, 247, 0.25);
   border-radius: var(--radius-lg);
   padding: 2rem;
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   gap: 2rem;
   align-items: start;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .mapCanvas {
   position: relative;
   width: 100%;
   aspect-ratio: 7 / 5;
-  background: #0a0b10;
+  background: #080c1b;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-subtle);
   overflow: hidden;
 }
 
-/* State outlines — NO hover effect (prevents pointer event interference) */
+/* State outlines in cool deep navy/indigo */
 .stateOutline {
-  fill: #111420;
-  stroke: rgba(255, 255, 255, 0.1);
-  stroke-width: 0.8px;
+  fill: #10162a;
+  stroke: rgba(168, 85, 247, 0.18);
+  stroke-width: 0.9px;
   stroke-linejoin: round;
   pointer-events: none;
 }
@@ -97,8 +98,8 @@
 }
 
 .sidebarCardActive {
-  border-color: var(--border-active);
-  box-shadow: 0 0 20px rgba(245, 158, 11, 0.08);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.15);
 }
 
 .sidebarCardPlaceholder {
@@ -121,7 +122,7 @@
 .sidebarCardLab {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--accent-gold);
+  color: var(--accent-cyan);
 }
 
 .sidebarCardDesc {
@@ -150,7 +151,7 @@
 
 .uniListItem:hover,
 .uniListItemSelected {
-  border-color: var(--border-medium);
+  border-color: var(--accent-purple-border);
   background: var(--bg-surface-hover);
 }
 

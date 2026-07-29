@@ -7,7 +7,7 @@ export default function Hero() {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.tagline}>
-            <span className="badge badge-gold">Autumn 2026</span>
+            <span className="badge badge-purple">Autumn 2026</span>
             <span className={styles.taglineText}>Midwest Student Chapters</span>
           </div>
 
@@ -32,9 +32,9 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right side simple callout panel */}
+        {/* Right side callout panel */}
         <div className={styles.heroSidePanel}>
-          <span className="badge badge-emerald">Chicago Convergence</span>
+          <span className="badge badge-cyan">Chicago Convergence</span>
           <h3 className={styles.panelTitle}>Cross-Campus Collaboration</h3>
           <p className={styles.panelBody}>
             Connecting student builders across Illinois, Indiana, and Wisconsin. 

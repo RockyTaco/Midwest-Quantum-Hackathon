@@ -1,33 +1,46 @@
 :root {
-  --bg-primary: #06070a;
-  --bg-surface: #0c0e15;
-  --bg-surface-raised: #131722;
-  --bg-surface-hover: #191e2c;
+  /* Cool Cosmic Indigo & Deep Quantum Obsidian Base */
+  --bg-primary: #070913;
+  --bg-surface: #0e1222;
+  --bg-surface-raised: #161c33;
+  --bg-surface-hover: #1f2744;
 
   --foreground: #f8fafc;
   --foreground-muted: #94a3b8;
   --foreground-subtle: #64748b;
 
   --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-medium: rgba(255, 255, 255, 0.16);
-  --border-active: rgba(245, 158, 11, 0.4);
+  --border-medium: rgba(168, 85, 247, 0.2);
+  --border-active: rgba(56, 189, 248, 0.45);
 
-  /* Precise Technical Accents */
-  --accent-gold: #f59e0b;
-  --accent-gold-bg: rgba(245, 158, 11, 0.1);
-  --accent-gold-border: rgba(245, 158, 11, 0.3);
+  /* Rich Cool Color Palette Tokens */
+  --accent-purple: #a855f7;
+  --accent-purple-bg: rgba(168, 85, 247, 0.12);
+  --accent-purple-border: rgba(168, 85, 247, 0.35);
 
-  --accent-emerald: #10b981;
-  --accent-emerald-bg: rgba(16, 185, 129, 0.1);
-  --accent-emerald-border: rgba(16, 185, 129, 0.3);
-
-  --accent-crimson: #f43f5e;
-  --accent-crimson-bg: rgba(244, 63, 94, 0.1);
-  --accent-crimson-border: rgba(244, 63, 94, 0.3);
+  --accent-indigo: #6366f1;
+  --accent-indigo-bg: rgba(99, 102, 241, 0.12);
+  --accent-indigo-border: rgba(99, 102, 241, 0.35);
 
   --accent-cyan: #38bdf8;
-  --accent-cyan-bg: rgba(56, 189, 248, 0.1);
-  --accent-cyan-border: rgba(56, 189, 248, 0.3);
+  --accent-cyan-bg: rgba(56, 189, 248, 0.12);
+  --accent-cyan-border: rgba(56, 189, 248, 0.35);
+
+  --accent-blue: #3b82f6;
+  --accent-blue-bg: rgba(59, 130, 246, 0.12);
+  --accent-blue-border: rgba(59, 130, 246, 0.35);
+
+  --accent-gold: #f59e0b;
+  --accent-gold-bg: rgba(245, 158, 11, 0.12);
+  --accent-gold-border: rgba(245, 158, 11, 0.35);
+
+  --accent-emerald: #10b981;
+  --accent-emerald-bg: rgba(16, 185, 129, 0.12);
+  --accent-emerald-border: rgba(16, 185, 129, 0.35);
+
+  --accent-crimson: #f43f5e;
+  --accent-crimson-bg: rgba(244, 63, 94, 0.12);
+  --accent-crimson-border: rgba(244, 63, 94, 0.35);
 
   --radius-lg: 14px;
   --radius-md: 8px;
@@ -99,13 +112,14 @@ a {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: 1.75rem;
-  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .editorial-panel:hover,
 .card-panel:hover {
   border-color: var(--border-medium);
   background-color: var(--bg-surface-raised);
+  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.08);
 }
 
 .divider-line {
@@ -136,30 +150,32 @@ a {
 }
 
 .btn-primary {
-  background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 100%);
-  color: #06070a;
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+  color: #070913;
   border-color: #ffffff;
   font-weight: 700;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.25);
 }
 
 .btn-primary:hover {
   background: #ffffff;
   border-color: #ffffff;
   transform: translateY(-1px);
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
 }
 
 .btn-secondary {
   border-color: var(--border-medium);
-  background-color: transparent;
-  color: var(--foreground-muted);
+  background-color: rgba(22, 28, 51, 0.6);
+  color: var(--foreground);
+  backdrop-filter: blur(8px);
 }
 
 .btn-secondary:hover {
   background-color: var(--bg-surface-raised);
   color: var(--foreground);
-  border-color: var(--border-active);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
   transform: translateY(-1px);
 }
 
@@ -180,6 +196,30 @@ a {
   color: var(--foreground-muted);
 }
 
+.badge-purple {
+  background-color: var(--accent-purple-bg);
+  color: var(--accent-purple);
+  border-color: var(--accent-purple-border);
+}
+
+.badge-indigo {
+  background-color: var(--accent-indigo-bg);
+  color: var(--accent-indigo);
+  border-color: var(--accent-indigo-border);
+}
+
+.badge-cyan {
+  background-color: var(--accent-cyan-bg);
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan-border);
+}
+
+.badge-blue {
+  background-color: var(--accent-blue-bg);
+  color: var(--accent-blue);
+  border-color: var(--accent-blue-border);
+}
+
 .badge-gold {
   background-color: var(--accent-gold-bg);
   color: var(--accent-gold);
@@ -198,18 +238,11 @@ a {
   border-color: var(--accent-crimson-border);
 }
 
-.badge-cyan {
-  background-color: var(--accent-cyan-bg);
-  color: var(--accent-cyan);
-  border-color: var(--accent-cyan-border);
-}
-
 .badge-gray,
 .badge-sage,
 .badge-lavender,
 .badge-peach,
-.badge-orange,
-.badge-purple {
+.badge-orange {
   background-color: var(--bg-surface-raised);
   color: var(--foreground-muted);
   border-color: var(--border-medium);

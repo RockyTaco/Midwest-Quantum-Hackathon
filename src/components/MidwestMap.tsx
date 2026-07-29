@@ -41,7 +41,7 @@ const HUBS: Hub[] = [
     lab: "Chicago Student Quantum Group",
     coords: [-87.5997, 41.7886],
     isTarget: true,
-    color: "#f43f5e",
+    color: "#3b82f6",
     role: "Chicago Convergence Hub",
     desc: "Connecting student builders across academic and research institutes in the Chicago area.",
   },
@@ -96,7 +96,7 @@ const HUBS: Hub[] = [
     lab: "Wisconsin Quantum Student Club",
     coords: [-89.4012, 43.0731],
     isTarget: false,
-    color: "#6366f1",
+    color: "#a855f7",
     role: "Wisconsin Chapter",
     desc: "UW-Madison student group focusing on quantum simulation algorithms, logic, and benchmarking.",
   },
@@ -158,7 +158,7 @@ export default function MidwestMap() {
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.kicker}>
-            <span className="badge badge-gold">Regional Map</span>
+            <span className="badge badge-purple">Regional Map</span>
           </div>
           <h2 className={styles.title}>Midwest Student Chapter Convergence</h2>
           <p className={styles.subtitle}>
@@ -193,7 +193,7 @@ export default function MidwestMap() {
                 }
               </Geographies>
 
-              {/* Dynamic Extending Arrows with Arrowhead (>) riding at the extending tip */}
+              {/* Dynamic Extending Arrows with Cool Indigo/Cyan/Purple Accent Highlights */}
               {chicagoPt &&
                 ARROW_HUB_IDS.map((hubId) => {
                   const hub = HUBS.find((h) => h.id === hubId)!;
@@ -209,7 +209,7 @@ export default function MidwestMap() {
                   const tipX = fromPt[0] + dx * scrollProgress;
                   const tipY = fromPt[1] + dy * scrollProgress;
 
-                  const strokeColor = isHubActive ? "#ffffff" : "#f59e0b";
+                  const strokeColor = isHubActive ? "#38bdf8" : "#8b5cf6";
                   const strokeWidth = isHubActive ? 3.5 : 2.5;
 
                   return (
@@ -228,7 +228,7 @@ export default function MidwestMap() {
                         />
                       )}
 
-                      {/* Arrowhead (>) at extending tip */}
+                      {/* Arrowhead (>) riding at extending tip */}
                       {scrollProgress > 0.05 && (
                         <g transform={`translate(${tipX}, ${tipY}) rotate(${angle})`}>
                           <path
@@ -246,17 +246,17 @@ export default function MidwestMap() {
                   );
                 })}
 
-              {/* Chicago convergence target zone */}
+              {/* Chicago convergence target zone with cool purple-blue glow */}
               <Marker coordinates={CHICAGO}>
                 <circle
-                  r={scrollProgress > 0.1 ? 14 * scrollProgress : 0}
-                  fill="rgba(244, 63, 94, 0.12)"
-                  stroke="#f43f5e"
+                  r={scrollProgress > 0.1 ? 16 * scrollProgress : 0}
+                  fill="rgba(168, 85, 247, 0.15)"
+                  stroke="#a855f7"
                   strokeWidth="1.5"
                   strokeDasharray="4 3"
                   pointerEvents="none"
                 />
-                <circle r="4" fill="#f43f5e" pointerEvents="none" />
+                <circle r="4.5" fill="#38bdf8" pointerEvents="none" />
               </Marker>
 
               {/* University nodes — completely stable DOM */}
@@ -271,7 +271,7 @@ export default function MidwestMap() {
                       fill="none"
                       stroke={hub.color}
                       strokeWidth="1.5"
-                      opacity={isActive ? 0.8 : 0}
+                      opacity={isActive ? 0.85 : 0}
                       pointerEvents="none"
                       style={{ transition: "opacity 0.15s ease" }}
                     />
@@ -304,7 +304,7 @@ export default function MidwestMap() {
             <div className={styles.sidebarCardWrapper}>
               {activeHub ? (
                 <div className={`${styles.sidebarCard} ${styles.sidebarCardActive}`}>
-                  <span className="badge badge-gold">{activeHub.role}</span>
+                  <span className="badge badge-purple">{activeHub.role}</span>
                   <h3 className={styles.sidebarCardTitle}>{activeHub.name}</h3>
                   <span className={styles.sidebarCardLab}>{activeHub.lab}</span>
                   <p className={styles.sidebarCardDesc}>{activeHub.desc}</p>
