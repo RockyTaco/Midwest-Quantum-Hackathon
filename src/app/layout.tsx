@@ -1,29 +1,32 @@
 import type { Metadata } from "next";
-import { Lora, Inter, Space_Mono } from "next/font/google";
+import { Montserrat, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
-const lora = Lora({
-  variable: "--font-lora",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const ibmPlexSans = IBM_Plex_Sans({
+  variable: "--font-ibm-plex-sans",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
 });
 
-const spaceMono = Space_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
-
 export const metadata: Metadata = {
   title: "Midwest Quantum Hackathon 2026 | MQH",
-  description: "A collaborative student-led initiative co-organized by Purdue QSO, UIUC IQUIST, and Chicago Quantum Exchange.",
-  keywords: ["quantum computing", "hackathon", "Purdue", "UIUC", "IQUIST", "UChicago", "CQE", "UIC", "midwest", "quantum physics", "qBraid", "coding"],
+  description:
+    "A student-led quantum computing hackathon organized by student chapters across five Midwest universities, hosted in Chicago on November 14–15, 2026.",
+  keywords: [
+    "quantum computing",
+    "hackathon",
+    "Purdue",
+    "UIUC",
+    "UChicago",
+    "UIC",
+    "UW-Madison",
+    "midwest",
+  ],
   authors: [{ name: "Midwest Quantum Hackathon Organizers" }],
 };
 
@@ -33,10 +36,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${lora.variable} ${inter.variable} ${spaceMono.variable}`}>
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-      </head>
+    <html
+      lang="en"
+      className={`${montserrat.variable} ${ibmPlexSans.variable}`}
+    >
       <body>{children}</body>
     </html>
   );
